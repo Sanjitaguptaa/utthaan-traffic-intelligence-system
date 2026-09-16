@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+data/*.avi
+data/ground_truth.json
+outputs/*.html
+outputs/*.json
+tests/_tmp_data/
+tests/_tmp_outputs/
+.DS_Store

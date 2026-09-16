@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>UTTHAAN | City Traffic Intelligence Dashboard</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root{
+    --navy:#0b1f3a; --navy2:#132a4d; --green:#1a7a4c; --orange:#e07a1f;
+    --bg:#0f1620; --panel:#16202e; --text:#e8edf3; --muted:#93a4bb; --border:#243247;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);}
+  header{background:linear-gradient(90deg,var(--navy),var(--navy2));padding:18px 28px;display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--orange);}
+  header h1{font-size:19px;margin:0;letter-spacing:.3px;}
+  header .badge{font-size:12px;color:var(--muted);}
+  .wrap{padding:20px 28px;max-width:1400px;margin:0 auto;}
+  .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:20px;}
+  .kpi{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 16px;}
+  .kpi .label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;}
+  .kpi .value{font-size:26px;font-weight:700;margin-top:4px;}
+  .grid{display:grid;grid-template-columns:1.3fr 1fr;gap:18px;}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:18px;}
+  .panel h2{font-size:14px;margin:0 0 12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;}
+  table{width:100%;border-collapse:collapse;font-size:13px;}
+  th,td{padding:7px 8px;text-align:left;border-bottom:1px solid var(--border);}
+  th{color:var(--muted);font-weight:600;font-size:11px;text-transform:uppercase;}
+  .pill{display:inline-block;padding:2px 9px;border-radius:99px;font-size:11px;font-weight:600;}
+  .pill.high{background:#123d24;color:#4ade80;}
+  .pill.probable{background:#4a3616;color:#fbbf24;}
+  .pill.review{background:#4a1616;color:#f87171;}
+  .pill.low{background:#123d24;color:#4ade80;}
+  .pill.normal{background:#4a3616;color:#fbbf24;}
+  .pill.high-cong{background:#4a1616;color:#f87171;}
+  .alert{background:#2a1414;border-left:3px solid #f87171;padding:10px 12px;border-radius:6px;margin-bottom:8px;font-size:13px;}
+  .alert .t{font-weight:700;color:#f87171;font-size:12px;text-transform:uppercase;}
+  iframe{width:100%;height:520px;border:0;border-radius:8px;background:#fff;}
+  .empty{color:var(--muted);font-size:13px;padding:10px 0;}
+  .footer-note{color:var(--muted);font-size:12px;margin-top:6px;}
+</style>
+</head>
+<body>
+<header>
+  <h1>🚦 UTTHAAN &mdash; City-Wide AI Traffic Intelligence Dashboard</h1>
+  <span class="badge">SIH 2026 &middot; PS 26127 &middot; Bharat Electronics Limited (BEL) &middot; LIVE VIEW</span>
+</header>
+
+<div class="wrap">
+  <div class="kpis" id="kpis"></div>
+
+  <div class="grid">
+    <div>
+      <div class="panel">
+        <h2>City Traffic Digital Twin (GIS Layer)</h2>
+        <iframe src="/outputs/city_traffic_map.html"></iframe>
+        <div class="footer-note">Blue markers = ANPR cameras &middot; coloured lines = reconstructed cross-camera vehicle trajectories</div>
+      </div>
+
+      <div class="panel">
+        <h2>Reconstructed Vehicle Trajectories</h2>
+        <table id="traj-table">
+          <thead><tr><th>Vehicle / Plate</th><th>Camera Route</th><th>Confidence</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div>
+      <div class="panel">
+        <h2>Camera Status &amp; Congestion</h2>
+        <table id="camera-table">
+          <thead><tr><th>Camera</th><th>Vehicles</th><th>Veh/min</th><th>Congestion</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="panel">
+        <h2>Travel Time / Segment Speed</h2>
+        <canvas id="speedChart" height="180"></canvas>
+      </div>
+
+      <div class="panel">
+        <h2>Smart Alerts</h2>
+        <div id="alerts"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+async function load() {
+  const res = await fetch('/api/data');
+  const data = await res.json();
+  if (data.error) {
+    document.querySelector('.wrap').innerHTML = `<div class="empty">${data.error}</div>`;
+    return;
+  }
+  const report = data.report;
+  const traj = data.trajectories || [];
+  const val = data.validation || {};
+
+  // KPIs
+  const totalVeh = Object.values(report.camera_volume).reduce((a,c)=>a+c.vehicle_count,0);
+  const avgSpeed = report.travel_legs.length
+      ? (report.travel_legs.reduce((a,l)=>a+(l.speed_kmh||0),0)/report.travel_legs.length).toFixed(1)
+      : '—';
+  const avgTravel = report.travel_legs.length
+      ? (report.travel_legs.reduce((a,l)=>a+l.travel_time_s,0)/report.travel_legs.length).toFixed(1)
+      : '—';
+  const kpis = [
+    ['Vehicles Tracked', totalVeh],
+    ['Multi-Camera Trajectories', report.multi_camera_trajectories],
+    ['Avg Segment Speed', avgSpeed + ' km/h'],
+    ['Avg Travel Time', avgTravel + ' s'],
+    ['Active Alerts', report.alerts.length],
+  ];
+  document.getElementById('kpis').innerHTML = kpis.map(([l,v]) =>
+    `<div class="kpi"><div class="label">${l}</div><div class="value">${v}</div></div>`).join('');
+
+  // Camera table
+  const camRows = Object.entries(report.camera_volume).map(([cam, v]) => {
+    const cls = v.congestion_level.toLowerCase() === 'high' ? 'high-cong' : v.congestion_level.toLowerCase();
+    return `<tr><td>${cam}</td><td>${v.vehicle_count}</td><td>${v.vehicles_per_minute}</td>
+             <td><span class="pill ${cls}">${v.congestion_level}</span></td></tr>`;
+  }).join('');
+  document.querySelector('#camera-table tbody').innerHTML = camRows || '<tr><td colspan=4 class="empty">No data</td></tr>';
+
+  // Trajectory table
+  const trajRows = traj.map(t => {
+    const cls = t.label === 'High Confidence' ? 'high' : (t.label === 'Probable' ? 'probable' : 'review');
+    return `<tr><td>${t.vehicle}</td><td>${t.camera_sequence.join(' &rarr; ')}</td>
+             <td><span class="pill ${cls}">${(t.confidence*100).toFixed(0)}% &middot; ${t.label}</span></td></tr>`;
+  }).join('');
+  document.querySelector('#traj-table tbody').innerHTML = trajRows || '<tr><td colspan=3 class="empty">No trajectories reconstructed</td></tr>';
+
+  // Alerts
+  const alertsEl = document.getElementById('alerts');
+  alertsEl.innerHTML = report.alerts.length ? report.alerts.map(a =>
+    `<div class="alert"><div class="t">${a.type}</div>
+     Plate ${a.plate} &middot; Route ${a.route} &middot; Confidence ${(a.confidence*100).toFixed(0)}%
+     ${a.requires_human_review ? ' &middot; <b>Human review required</b>' : ''}</div>`
+  ).join('') : '<div class="empty">No active alerts</div>';
+
+  // Speed chart
+  const legs = report.travel_legs.filter(l => l.speed_kmh !== null);
+  new Chart(document.getElementById('speedChart'), {
+    type: 'bar',
+    data: {
+      labels: legs.map(l => `${l.vehicle} (${l.from}→${l.to})`),
+      datasets: [{ label: 'Speed (km/h)', data: legs.map(l => l.speed_kmh), backgroundColor: '#1a7a4c' }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { ticks: { color: '#93a4bb', font: {size:10} }, grid: { color: '#243247' } },
+        y: { ticks: { color: '#93a4bb' }, grid: { color: '#243247' } }
+      }
+    }
+  });
+}
+load();
+</script>
+</body>
+</html>
