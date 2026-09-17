@@ -1,0 +1,15 @@
+{
+  "total_real_vehicles": 4,
+  "correctly_reconstructed": 3,
+  "accuracy_pct": 75.0,
+  "reconstructed_plates": [
+    "JK12PP2144",
+    "JK47UB9313",
+    "JK51WB2186"
+  ],
+  "missed_plates": [
+    "JK71PB3028"
+  ],
+  "note": "A trajectory counts as correct if it spans all 4 cameras and its read plate is a >=85% string match to the true plate (tolerates realistic single-character OCR noise, as real ANPR systems must).",
+  "blacklist_alerts_correct": true
+}

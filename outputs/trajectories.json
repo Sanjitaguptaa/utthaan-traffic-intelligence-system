@@ -1,0 +1,263 @@
+[
+  {
+    "vehicle": "JKS1WB2186",
+    "camera_sequence": [
+      "C1",
+      "C2",
+      "C3",
+      "C4"
+    ],
+    "confidence": 1.0,
+    "label": "High Confidence",
+    "legs": [
+      {
+        "from": "C1",
+        "to": "C2",
+        "confidence": 1.0,
+        "breakdown": {
+          "plate_similarity": 1.0,
+          "appearance_similarity": 1.0,
+          "timestamp_compatibility": 1.0,
+          "direction_consistency": 1.0
+        }
+      },
+      {
+        "from": "C2",
+        "to": "C3",
+        "confidence": 1.0,
+        "breakdown": {
+          "plate_similarity": 1.0,
+          "appearance_similarity": 0.999,
+          "timestamp_compatibility": 1.0,
+          "direction_consistency": 1.0
+        }
+      },
+      {
+        "from": "C3",
+        "to": "C4",
+        "confidence": 1.0,
+        "breakdown": {
+          "plate_similarity": 1.0,
+          "appearance_similarity": 1.0,
+          "timestamp_compatibility": 1.0,
+          "direction_consistency": 1.0
+        }
+      }
+    ]
+  },
+  {
+    "vehicle": "JK47UB93135",
+    "camera_sequence": [
+      "C1",
+      "C2",
+      "C3",
+      "C4"
+    ],
+    "confidence": 1.0,
+    "label": "High Confidence",
+    "legs": [
+      {
+        "from": "C1",
+        "to": "C2",
+        "confidence": 1.0,
+        "breakdown": {
+          "plate_similarity": 1.0,
+          "appearance_similarity": 1.0,
+          "timestamp_compatibility": 1.0,
+          "direction_consistency": 1.0
+        }
+      },
+      {
+        "from": "C2",
+        "to": "C3",
+        "confidence": 1.0,
+        "breakdown": {
+          "plate_similarity": 1.0,
+          "appearance_similarity": 1.0,
+          "timestamp_compatibility": 1.0,
+          "direction_consistency": 1.0
+        }
+      },
+      {
+        "from": "C3",
+        "to": "C4",
+        "confidence": 1.0,
+        "breakdown": {
+          "plate_similarity": 1.0,
+          "appearance_similarity": 1.0,
+          "timestamp_compatibility": 1.0,
+          "direction_consistency": 1.0
+        }
+      }
+    ]
+  },
+  {
+    "vehicle": "JK12PP2144",
+    "camera_sequence": [
+      "C1",
+      "C2",
+      "C3",
+      "C4"
+    ],
+    "confidence": 0.985,
+    "label": "High Confidence",
+    "legs": [
+      {
+        "from": "C1",
+        "to": "C2",
+        "confidence": 1.0,
+        "breakdown": {
+          "plate_similarity": 1.0,
+          "appearance_similarity": 1.0,
+          "timestamp_compatibility": 1.0,
+          "direction_consistency": 1.0
+        }
+      },
+      {
+        "from": "C2",
+        "to": "C3",
+        "confidence": 0.955,
+        "breakdown": {
+          "plate_similarity": 0.9,
+          "appearance_similarity": 1.0,
+          "timestamp_compatibility": 1.0,
+          "direction_consistency": 1.0
+        }
+      },
+      {
+        "from": "C3",
+        "to": "C4",
+        "confidence": 1.0,
+        "breakdown": {
+          "plate_similarity": 1.0,
+          "appearance_similarity": 1.0,
+          "timestamp_compatibility": 1.0,
+          "direction_consistency": 1.0
+        }
+      }
+    ]
+  },
+  {
+    "vehicle": "JK92CU1976",
+    "camera_sequence": [
+      "C1",
+      "C2",
+      "C3",
+      "C4"
+    ],
+    "confidence": 0.731,
+    "label": "Probable",
+    "legs": [
+      {
+        "from": "C1",
+        "to": "C2",
+        "confidence": 0.833,
+        "breakdown": {
+          "plate_similarity": 0.7,
+          "appearance_similarity": 1.0,
+          "timestamp_compatibility": 0.84,
+          "direction_consistency": 1.0
+        }
+      },
+      {
+        "from": "C2",
+        "to": "C3",
+        "confidence": 0.675,
+        "breakdown": {
+          "plate_similarity": 0.4,
+          "appearance_similarity": 0.727,
+          "timestamp_compatibility": 1.0,
+          "direction_consistency": 1.0
+        }
+      },
+      {
+        "from": "C3",
+        "to": "C4",
+        "confidence": 0.685,
+        "breakdown": {
+          "plate_similarity": 0.3,
+          "appearance_similarity": 1.0,
+          "timestamp_compatibility": 1.0,
+          "direction_consistency": 1.0
+        }
+      }
+    ]
+  },
+  {
+    "vehicle": "PB3028",
+    "camera_sequence": [
+      "C1",
+      "C2",
+      "C3",
+      "C4"
+    ],
+    "confidence": 0.962,
+    "label": "High Confidence",
+    "legs": [
+      {
+        "from": "C1",
+        "to": "C2",
+        "confidence": 1.0,
+        "breakdown": {
+          "plate_similarity": null,
+          "appearance_similarity": 1.0,
+          "timestamp_compatibility": 1.0,
+          "direction_consistency": 1.0
+        }
+      },
+      {
+        "from": "C2",
+        "to": "C3",
+        "confidence": 1.0,
+        "breakdown": {
+          "plate_similarity": 1.0,
+          "appearance_similarity": 1.0,
+          "timestamp_compatibility": 1.0,
+          "direction_consistency": 1.0
+        }
+      },
+      {
+        "from": "C3",
+        "to": "C4",
+        "confidence": 0.887,
+        "breakdown": {
+          "plate_similarity": 0.75,
+          "appearance_similarity": 1.0,
+          "timestamp_compatibility": 1.0,
+          "direction_consistency": 1.0
+        }
+      }
+    ]
+  },
+  {
+    "vehicle": "JKS8KV2199",
+    "camera_sequence": [
+      "C2"
+    ],
+    "confidence": 1.0,
+    "label": "High Confidence",
+    "legs": []
+  },
+  {
+    "vehicle": "JK41LY6737",
+    "camera_sequence": [
+      "C3",
+      "C4"
+    ],
+    "confidence": 0.613,
+    "label": "Probable",
+    "legs": [
+      {
+        "from": "C3",
+        "to": "C4",
+        "confidence": 0.613,
+        "breakdown": {
+          "plate_similarity": 0.3,
+          "appearance_similarity": 0.638,
+          "timestamp_compatibility": 1.0,
+          "direction_consistency": 1.0
+        }
+      }
+    ]
+  }
+]

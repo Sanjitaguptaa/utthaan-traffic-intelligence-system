@@ -74,6 +74,28 @@ python -m src.dashboard
 
 Or simply run `bash setup.sh` to do steps 1–2 automatically on Linux.
 
+## Deploy on Streamlit Community Cloud
+
+The Flask dashboard (`src/dashboard.py`) is for local/self-hosted use. Streamlit
+Community Cloud specifically requires a Streamlit app, so a separate entrypoint,
+`app.py`, is included at the repo root for that purpose — same pipeline, a
+Streamlit UI instead of Flask's.
+
+1. Push this repo to GitHub (see the main README's git instructions, or the
+   web-upload method if you're not using git locally).
+2. Go to [share.streamlit.io](https://share.streamlit.io), sign in, click
+   **New app**, pick this repo/branch, and set **Main file path** to `app.py`.
+3. Deploy. `packages.txt` (apt: `tesseract-ocr`, `libgl1`, `libglib2.0-0`) and
+   `requirements.txt` (Python deps, including headless OpenCV so it works
+   without a display) are both auto-installed by Streamlit Cloud — no extra
+   configuration needed.
+4. The demo's pre-generated `data/` videos and `outputs/` (map, analytics,
+   trajectories) are committed to the repo, so the deployed app shows results
+   immediately. A **"Regenerate demo"** button in the app re-runs the full
+   pipeline live (detection → OCR → tracking → Re-ID → association → GIS →
+   analytics) if you want to demonstrate it running from scratch — takes
+   roughly 1–2 minutes on Streamlit Cloud's free-tier CPU.
+
 ### Outputs (written to `outputs/`)
 - `city_traffic_map.html` — interactive GIS trajectory map
 - `traffic_analytics.json` — congestion, travel times, O-D patterns, bottlenecks, alerts
@@ -111,6 +133,8 @@ upgrade" feasibility point describes:
 
 ```
 utthaan-traffic-intelligence/
+├── app.py                    # Streamlit Community Cloud entrypoint
+├── packages.txt              # apt deps for Streamlit Cloud (tesseract-ocr, etc.)
 ├── src/
 │   ├── config.py            # camera network, thresholds, weights
 │   ├── synthetic_data.py    # synthetic 4-camera dataset generator
@@ -123,7 +147,7 @@ utthaan-traffic-intelligence/
 │   ├── gis_layer.py         # GIS/map trajectory visualization
 │   ├── analytics.py         # traffic analytics + smart alerts
 │   ├── pipeline.py          # end-to-end orchestrator + validation
-│   ├── dashboard.py         # Flask dashboard app
+│   ├── dashboard.py         # Flask dashboard app (local/self-hosted use)
 │   └── templates/dashboard.html
 ├── tests/test_pipeline.py
 ├── requirements.txt

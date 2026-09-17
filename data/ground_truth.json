@@ -1,0 +1,259 @@
+{
+  "real_vehicles": [
+    {
+      "vehicle_id": "V1",
+      "plate": "JK51WB2186",
+      "color": "red",
+      "speed_kmh": 28,
+      "departure_offset_s": 0.0,
+      "blacklisted": false
+    },
+    {
+      "vehicle_id": "V2",
+      "plate": "JK47UB9313",
+      "color": "blue",
+      "speed_kmh": 34,
+      "departure_offset_s": 4.0,
+      "blacklisted": false
+    },
+    {
+      "vehicle_id": "V3",
+      "plate": "JK12PP2144",
+      "color": "white",
+      "speed_kmh": 22,
+      "departure_offset_s": 8.0,
+      "blacklisted": true
+    },
+    {
+      "vehicle_id": "V4",
+      "plate": "JK71PB3028",
+      "color": "black",
+      "speed_kmh": 40,
+      "departure_offset_s": 12.0,
+      "blacklisted": false
+    }
+  ],
+  "events": [
+    {
+      "camera": "C1",
+      "t_enter": 1.5684698204244925,
+      "t_exit": 3.9684698204244926,
+      "vehicle_id": "V1",
+      "plate": "JK51WB2186",
+      "color": "red",
+      "blacklisted": false
+    },
+    {
+      "camera": "C2",
+      "t_enter": 14.235518406581901,
+      "t_exit": 16.6355184065819,
+      "vehicle_id": "V1",
+      "plate": "JK51WB2186",
+      "color": "red",
+      "blacklisted": false
+    },
+    {
+      "camera": "C3",
+      "t_enter": 29.63551242839053,
+      "t_exit": 32.03551242839053,
+      "vehicle_id": "V1",
+      "plate": "JK51WB2186",
+      "color": "red",
+      "blacklisted": false
+    },
+    {
+      "camera": "C4",
+      "t_enter": 46.03711722900168,
+      "t_exit": 48.437117229001686,
+      "vehicle_id": "V1",
+      "plate": "JK51WB2186",
+      "color": "red",
+      "blacklisted": false
+    },
+    {
+      "camera": "C1",
+      "t_enter": 5.351324853584232,
+      "t_exit": 7.751324853584232,
+      "vehicle_id": "V2",
+      "plate": "JK47UB9313",
+      "color": "blue",
+      "blacklisted": false
+    },
+    {
+      "camera": "C2",
+      "t_enter": 15.617988882151508,
+      "t_exit": 18.017988882151506,
+      "vehicle_id": "V2",
+      "plate": "JK47UB9313",
+      "color": "blue",
+      "blacklisted": false
+    },
+    {
+      "camera": "C3",
+      "t_enter": 28.426766741133413,
+      "t_exit": 30.82676674113341,
+      "vehicle_id": "V2",
+      "plate": "JK47UB9313",
+      "color": "blue",
+      "blacklisted": false
+    },
+    {
+      "camera": "C4",
+      "t_enter": 42.39282246817401,
+      "t_exit": 44.792822468174016,
+      "vehicle_id": "V2",
+      "plate": "JK47UB9313",
+      "color": "blue",
+      "blacklisted": false
+    },
+    {
+      "camera": "C1",
+      "t_enter": 9.079904889864963,
+      "t_exit": 11.479904889864962,
+      "vehicle_id": "V3",
+      "plate": "JK12PP2144",
+      "color": "white",
+      "blacklisted": true
+    },
+    {
+      "camera": "C2",
+      "t_enter": 25.615119789779243,
+      "t_exit": 28.01511978977924,
+      "vehicle_id": "V3",
+      "plate": "JK12PP2144",
+      "color": "white",
+      "blacklisted": true
+    },
+    {
+      "camera": "C3",
+      "t_enter": 45.324411531319285,
+      "t_exit": 47.72441153131929,
+      "vehicle_id": "V3",
+      "plate": "JK12PP2144",
+      "color": "white",
+      "blacklisted": true
+    },
+    {
+      "camera": "C4",
+      "t_enter": 66.61527548651532,
+      "t_exit": 69.01527548651532,
+      "vehicle_id": "V3",
+      "plate": "JK12PP2144",
+      "color": "white",
+      "blacklisted": true
+    },
+    {
+      "camera": "C1",
+      "t_enter": 13.336154366207689,
+      "t_exit": 15.736154366207687,
+      "vehicle_id": "V4",
+      "plate": "JK71PB3028",
+      "color": "black",
+      "blacklisted": false
+    },
+    {
+      "camera": "C2",
+      "t_enter": 22.409201616856723,
+      "t_exit": 24.809201616856722,
+      "vehicle_id": "V4",
+      "plate": "JK71PB3028",
+      "color": "black",
+      "blacklisted": false
+    },
+    {
+      "camera": "C3",
+      "t_enter": 32.86183342746615,
+      "t_exit": 35.26183342746616,
+      "vehicle_id": "V4",
+      "plate": "JK71PB3028",
+      "color": "black",
+      "blacklisted": false
+    },
+    {
+      "camera": "C4",
+      "t_enter": 44.84272263484707,
+      "t_exit": 47.24272263484708,
+      "vehicle_id": "V4",
+      "plate": "JK71PB3028",
+      "color": "black",
+      "blacklisted": false
+    },
+    {
+      "camera": "C1",
+      "t_enter": 12.45122799112431,
+      "t_exit": 14.85122799112431,
+      "vehicle_id": "NOISE-C1-JK92CU1976",
+      "plate": "JK92CU1976",
+      "color": "green",
+      "blacklisted": false
+    },
+    {
+      "camera": "C1",
+      "t_enter": 13.120472374315082,
+      "t_exit": 15.520472374315082,
+      "vehicle_id": "NOISE-C1-JK55LQ8424",
+      "plate": "JK55LQ8424",
+      "color": "white",
+      "blacklisted": false
+    },
+    {
+      "camera": "C2",
+      "t_enter": 16.591378883956246,
+      "t_exit": 18.991378883956244,
+      "vehicle_id": "NOISE-C2-JK32CU5919",
+      "plate": "JK32CU5919",
+      "color": "green",
+      "blacklisted": false
+    },
+    {
+      "camera": "C2",
+      "t_enter": 23.819305303544457,
+      "t_exit": 26.219305303544456,
+      "vehicle_id": "NOISE-C2-JK58KV2199",
+      "plate": "JK58KV2199",
+      "color": "red",
+      "blacklisted": false
+    },
+    {
+      "camera": "C3",
+      "t_enter": 24.441514733959316,
+      "t_exit": 26.841514733959315,
+      "vehicle_id": "NOISE-C3-JK20RP1642",
+      "plate": "JK20RP1642",
+      "color": "silver",
+      "blacklisted": false
+    },
+    {
+      "camera": "C3",
+      "t_enter": 8.371957840689435,
+      "t_exit": 10.771957840689435,
+      "vehicle_id": "NOISE-C3-JK41LY6737",
+      "plate": "JK41LY6737",
+      "color": "green",
+      "blacklisted": false
+    },
+    {
+      "camera": "C4",
+      "t_enter": 23.876967426062542,
+      "t_exit": 26.27696742606254,
+      "vehicle_id": "NOISE-C4-JK12JR2064",
+      "plate": "JK12JR2064",
+      "color": "red",
+      "blacklisted": false
+    },
+    {
+      "camera": "C4",
+      "t_enter": 32.55289538171294,
+      "t_exit": 34.95289538171294,
+      "vehicle_id": "NOISE-C4-JK74XQ5662",
+      "plate": "JK74XQ5662",
+      "color": "silver",
+      "blacklisted": false
+    }
+  ],
+  "fps": 15,
+  "frame_size": [
+    640,
+    480
+  ]
+}

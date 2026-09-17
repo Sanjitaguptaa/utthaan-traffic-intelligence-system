@@ -1,0 +1,182 @@
+{
+  "camera_volume": {
+    "C1": {
+      "vehicle_count": 5,
+      "vehicles_per_minute": 4.05,
+      "congestion_level": "Normal"
+    },
+    "C2": {
+      "vehicle_count": 6,
+      "vehicles_per_minute": 4.86,
+      "congestion_level": "Normal"
+    },
+    "C3": {
+      "vehicle_count": 6,
+      "vehicles_per_minute": 4.86,
+      "congestion_level": "Normal"
+    },
+    "C4": {
+      "vehicle_count": 6,
+      "vehicles_per_minute": 4.86,
+      "congestion_level": "Normal"
+    }
+  },
+  "travel_legs": [
+    {
+      "vehicle": "JKS1WB2186",
+      "from": "C1",
+      "to": "C2",
+      "travel_time_s": 12.7,
+      "speed_kmh": 28.4,
+      "confidence": 1.0
+    },
+    {
+      "vehicle": "JKS1WB2186",
+      "from": "C2",
+      "to": "C3",
+      "travel_time_s": 15.4,
+      "speed_kmh": 28.1,
+      "confidence": 1.0
+    },
+    {
+      "vehicle": "JKS1WB2186",
+      "from": "C3",
+      "to": "C4",
+      "travel_time_s": 16.4,
+      "speed_kmh": 28.5,
+      "confidence": 1.0
+    },
+    {
+      "vehicle": "JK47UB93135",
+      "from": "C1",
+      "to": "C2",
+      "travel_time_s": 10.3,
+      "speed_kmh": 35.1,
+      "confidence": 1.0
+    },
+    {
+      "vehicle": "JK47UB93135",
+      "from": "C2",
+      "to": "C3",
+      "travel_time_s": 12.8,
+      "speed_kmh": 33.7,
+      "confidence": 1.0
+    },
+    {
+      "vehicle": "JK47UB93135",
+      "from": "C3",
+      "to": "C4",
+      "travel_time_s": 14.0,
+      "speed_kmh": 33.5,
+      "confidence": 1.0
+    },
+    {
+      "vehicle": "JK12PP2144",
+      "from": "C1",
+      "to": "C2",
+      "travel_time_s": 16.5,
+      "speed_kmh": 21.8,
+      "confidence": 1.0
+    },
+    {
+      "vehicle": "JK12PP2144",
+      "from": "C2",
+      "to": "C3",
+      "travel_time_s": 19.7,
+      "speed_kmh": 21.9,
+      "confidence": 0.95
+    },
+    {
+      "vehicle": "JK12PP2144",
+      "from": "C3",
+      "to": "C4",
+      "travel_time_s": 21.3,
+      "speed_kmh": 22.0,
+      "confidence": 1.0
+    },
+    {
+      "vehicle": "JK92CU1976",
+      "from": "C1",
+      "to": "C2",
+      "travel_time_s": 4.2,
+      "speed_kmh": 86.4,
+      "confidence": 0.83
+    },
+    {
+      "vehicle": "JK92CU1976",
+      "from": "C2",
+      "to": "C3",
+      "travel_time_s": 7.8,
+      "speed_kmh": 55.1,
+      "confidence": 0.68
+    },
+    {
+      "vehicle": "JK92CU1976",
+      "from": "C3",
+      "to": "C4",
+      "travel_time_s": 8.1,
+      "speed_kmh": 57.5,
+      "confidence": 0.68
+    },
+    {
+      "vehicle": "PB3028",
+      "from": "C1",
+      "to": "C2",
+      "travel_time_s": 9.2,
+      "speed_kmh": 39.1,
+      "confidence": 1.0
+    },
+    {
+      "vehicle": "PB3028",
+      "from": "C2",
+      "to": "C3",
+      "travel_time_s": 10.5,
+      "speed_kmh": 41.3,
+      "confidence": 1.0
+    },
+    {
+      "vehicle": "PB3028",
+      "from": "C3",
+      "to": "C4",
+      "travel_time_s": 12.0,
+      "speed_kmh": 39.1,
+      "confidence": 0.89
+    },
+    {
+      "vehicle": "JK41LY6737",
+      "from": "C3",
+      "to": "C4",
+      "travel_time_s": 15.5,
+      "speed_kmh": 30.2,
+      "confidence": 0.61
+    }
+  ],
+  "origin_destination": [
+    {
+      "origin": "C1",
+      "destination": "C4",
+      "vehicle_count": 5
+    },
+    {
+      "origin": "C3",
+      "destination": "C4",
+      "vehicle_count": 1
+    }
+  ],
+  "bottlenecks": [],
+  "alerts": [
+    {
+      "type": "Blacklisted / Watch-listed vehicle",
+      "plate": "JK12PP2144",
+      "matched_watchlist_plate": "JK12PP2144",
+      "plate_match_score": 1.0,
+      "route": "C1 -> C2 -> C3 -> C4",
+      "confidence": 0.98,
+      "label": "High Confidence",
+      "requires_human_review": false
+    }
+  ],
+  "total_trajectories": 7,
+  "multi_camera_trajectories": 6,
+  "processing_time_s": 71.67
+}
